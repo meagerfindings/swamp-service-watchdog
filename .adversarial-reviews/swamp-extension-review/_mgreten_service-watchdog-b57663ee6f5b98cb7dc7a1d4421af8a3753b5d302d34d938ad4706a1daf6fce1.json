@@ -1,0 +1,22 @@
+{
+  "extension": "@mgreten/service-watchdog",
+  "version": "2026.08.24.1",
+  "reviewedAt": "2026-08-24T13:31:23Z",
+  "dimensions": [
+    { "id": "credentials-secrets", "verdict": "na", "note": "Provider-neutral, credential-free model with no network access." },
+    { "id": "logging-quality", "verdict": "pass", "note": "Both methods log entry and completion or replay outcomes with structured placeholders and no sensitive values." },
+    { "id": "error-handling", "verdict": "pass", "note": "Policy, snapshots, and persisted state are validated before evaluation writes; deterministic outputs precede transition markers for safe retry." },
+    { "id": "testing-completeness", "verdict": "pass", "note": "Fourteen tests cover transitions, replay, freshness, malformed and duplicate evidence, stale policy/state, write ordering, evaluation compatibility, provenance, and denominator invariants." },
+    { "id": "idempotency-resilience", "verdict": "pass", "note": "Plans, inspections, incidents, and intents have deterministic identities; retries suppress completed transitions and safely overwrite pre-marker partial outputs." },
+    { "id": "api-contracts", "verdict": "na", "note": "No external API calls; caller-owned adapters supply normalized snapshots." },
+    { "id": "resource-management", "verdict": "na", "note": "No network connections, subprocesses, file handles, temporary files, or external resources." },
+    { "id": "published-surface-hygiene", "verdict": "pass", "note": "README, fixtures, manifest, and additional files use synthetic generic identifiers and disclose no private infrastructure." },
+    { "id": "schema-strictness", "verdict": "pass", "note": "All persisted resources and public contracts use strict Zod objects; no passthrough schemas." },
+    { "id": "lifetime-gc", "verdict": "pass", "note": "Every resource declares an intentional lifetime and garbageCollection bound." },
+    { "id": "crud-completeness", "verdict": "na", "note": "This is a read/evaluate transition model, not a CRUD lifecycle integration." },
+    { "id": "preflight-checks", "verdict": "na", "note": "The model exposes no provider mutation, delivery, remediation, or network capability." },
+    { "id": "instance-names", "verdict": "pass", "note": "Plan, inspection, subject state, incident, and intent names are deterministic and spec-distinct; shared-spec writers use identical schemas." },
+    { "id": "data-access", "verdict": "pass", "note": "Persisted state is read exclusively through context.readResource." },
+    { "id": "version-upgrades", "verdict": "na", "note": "Initial unpublished release; no published state exists to migrate." }
+  ]
+}
